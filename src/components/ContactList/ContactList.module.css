@@ -1,0 +1,17 @@
+.contacts>.btn {
+    width: 100px;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid lightgrey;
+    border-radius: 15px;
+    margin-left: 10px;    
+}
+
+.contacts>.btn:hover {
+    cursor: pointer;
+    background-color: lightblue;
+}
+
+.contacts>.btn:active {
+    background-color: blue;
+}

@@ -46,7 +46,7 @@ export default class ContactForm extends Component {
           <div>
             <form onSubmit={this.handleSubmit} className={styles.form}>
               <div className={styles.inputWrapper}>
-              <label>
+              <label className={styles.lbl}>
             Name
             <input
               onChange={this.handleChange}
@@ -59,7 +59,7 @@ export default class ContactForm extends Component {
             />
           </label>
           <div className={styles.inputWrapper}>
-          <label>
+          <label className={styles.lbl}>
             Number
             <input
               onChange={this.handleChange}

@@ -1,7 +1,8 @@
-.form {
+.form, .lbl {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 250px;
 }
 
 .inputWrapper {
@@ -11,5 +12,23 @@
 }
 
 .inputWrapper>input {
-    width: 250px;
+    width: 50px;
+    margin-left: 10px;
+}
+
+.form>button {
+    width: 100px;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid lightgrey;
+    border-radius: 15px;    
+}
+
+.form>button:hover {
+    cursor: pointer;
+    background-color: lightblue;
+}
+
+.form>button:active {
+    background-color: blue;
 }

@@ -34,6 +34,11 @@ filteredContacts = () => {
   );
 };
 
+removeContact = id => {
+  const newList = this.state.contacts.filter(contact => contact.id !== id);
+  this.setState({ contacts: newList });
+};
+
   render(){
     
  return(
@@ -45,7 +50,10 @@ filteredContacts = () => {
         />
         <h2>Contacts</h2>
         <Filter value={this.state.filter} onChange={this.handleChange} />
-        <ContactList contacts={this.filteredContacts()}/>
+        <ContactList 
+        contacts={this.filteredContacts()}
+        onRemove={this.removeContact}
+        />
   </div>
  )
 }
