@@ -5,6 +5,7 @@ import { nanoid } from 'nanoid';
 export default class ContactForm extends Component {
     state = {
         name: '',
+        number: '',
     }
 
     loginInputId = nanoid();
@@ -19,6 +20,7 @@ export default class ContactForm extends Component {
         const newContact = {
             id: nanoid(),
           name: this.state.name,
+          number: this.state.number,
         }
     
         if (this.props.onAddContact) {
@@ -43,6 +45,20 @@ export default class ContactForm extends Component {
               required
             />
           </label>
+          <div className={styles.inputWrapper}>
+          <label>
+            Number
+            <input
+              onChange={this.handleChange}
+              value={this.state.number}
+              type="tel"
+              name="number"
+              pattern="^\+?[0-9 \-\(\)]{7,20}"
+              title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+              required
+            />
+          </label>
+          </div>
               </div>
     
               <button type="submit">Add contact</button>
