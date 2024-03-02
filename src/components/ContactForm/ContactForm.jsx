@@ -22,10 +22,23 @@ export default class ContactForm extends Component {
           name: this.state.name,
           number: this.state.number,
         }
+        
+        const isDuplicate = this.props.contacts.some(
+            contact =>
+              contact.name.toLowerCase() === this.state.name.toLowerCase() ||
+              contact.number === this.state.number
+          );
+      
+          if (isDuplicate) {
+            alert('Contact with the same name or number already exists!');
+            return;
+          }
+          this.setState({ name: '', number: '' });
     
         if (this.props.onAddContact) {
             this.props.onAddContact(newContact);
           }
+          
         }
     
     render() {
