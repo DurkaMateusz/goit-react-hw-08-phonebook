@@ -1,7 +1,19 @@
 import React, { Component } from 'react';
 import styles from './ContactList.module.css';
+import PropTypes from 'prop-types';
 
 export class ContactList extends Component {
+    static propTypes = {
+        onRemove: PropTypes.func,
+        contacts: PropTypes.arrayOf(
+          PropTypes.shape({
+            id: PropTypes.string,
+            name: PropTypes.string,
+            number: PropTypes.string,
+          })
+        ),
+      };
+
     render() {
         const { contacts, onRemove } = this.props;
     
