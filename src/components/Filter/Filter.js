@@ -1,11 +1,12 @@
-import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setFilter } from '../../redux/slices/ContactsSlice';
 import styles from './Filter.module.css';
+import PropTypes from 'prop-types';
+import { selectFilter } from '../../redux/selectors';
 
 
 function Filter() {
-  const filter = useSelector(state => state.contacts.filter);
+  const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
 
   return (
@@ -16,12 +17,16 @@ function Filter() {
         className={styles.input}
           type="text"
           value={filter}
-          onChange={(e) => dispatch(setFilter(e.target.value))}
+          onChange={e => dispatch(setFilter(e.target.value))}
         />
       </label>
     </div>
   );
 }
 
+Filter.propTypes = {
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+};
 
 export default Filter;

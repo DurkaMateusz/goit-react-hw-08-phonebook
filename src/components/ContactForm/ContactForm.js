@@ -1,20 +1,34 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { addContact } from "../../redux/slices/ContactsSlice";
+import { useDispatch, useSelector } from 'react-redux';
+import { addContact } from '../../redux/mockapi';
 import styles from './ContactForm.module.css';
-import { nanoid } from 'nanoid';
+import { Notify } from 'notiflix';
+import { selectContacts } from '../../redux/selectors';
+
 
 function ContactForm() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const dispatch = useDispatch();
+  const contacts = useSelector(selectContacts)
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    dispatch(addContact({ id: nanoid(), name, number }));
-    setName('');
-    setNumber('');
-  };
+  const checkDuplicate = value =>
+    contacts.some(({ number }) => number === value);
+
+    const handleSubmit = async event => {
+      event.preventDefault();
+      if (checkDuplicate(number)) {
+        Notify.warning(`This number '${number}' already exists`);
+      } else {
+        try {
+          await dispatch(addContact({ name, number }));
+          setName('');
+          setNumber('');
+        } catch (error) {
+          console.error('Error while adding contact:', error.message);
+        }
+      }
+    };
 
   return (
     <div className={styles.container}>
