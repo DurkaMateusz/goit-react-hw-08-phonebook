@@ -1,24 +1,27 @@
-import React, { Component } from "react";
-import styles from '../ContactForm/ContactForm.module.css';
-import PropTypes from 'prop-types';
-export class Filter extends Component {
-    static propTypes = {
-        onChange: PropTypes.func,
-        filter: PropTypes.string,
-      };
-      
-    render() {
-        return (
-          <div>
-            <label className={styles.lbl}>
-              Find by name
-              <input
-                onChange={this.props.onChange}
-                value={this.props.filter}
-                name="filter"
-              />
-            </label>
-          </div>
-        );
-      };
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setFilter } from '../../redux/slices/ContactsSlice';
+import styles from './Filter.module.css';
+
+
+function Filter() {
+  const filter = useSelector(state => state.contacts.filter);
+  const dispatch = useDispatch();
+
+  return (
+    <div className={styles.container}>
+      <label className={styles.label}>
+        Find
+        <input
+        className={styles.input}
+          type="text"
+          value={filter}
+          onChange={(e) => dispatch(setFilter(e.target.value))}
+        />
+      </label>
+    </div>
+  );
 }
+
+
+export default Filter;
