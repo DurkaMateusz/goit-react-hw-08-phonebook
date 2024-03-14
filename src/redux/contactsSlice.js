@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchContacts, addContact, deleteContact } from '../mockapi';
+import { logout } from './auth/operations';
+import { fetchContacts, addContact, deleteContact } from './operations';
 
 const initialState = {
   contacts: [],
@@ -12,7 +13,6 @@ const initialState = {
 const handlePending = state => {
   state.loading = true;
 };
-
 const contactsSlice = createSlice({
   name: 'contacts',
   initialState,
@@ -51,10 +51,17 @@ const contactsSlice = createSlice({
       .addCase(deleteContact.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
+      })
+      .addCase(logout.fulfilled, (state) => {
+        // Here you should also reset your contact and filter state if needed
+        state.contacts = [];
+        state.filter = '';
+        state.items = [];
+        state.loading = false;
+        state.error = null;
       });
   },
 });
-
 export const { setFilter } = contactsSlice.actions;
 
 export default contactsSlice.reducer;

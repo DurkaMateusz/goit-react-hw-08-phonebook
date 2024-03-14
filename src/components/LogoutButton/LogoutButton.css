@@ -1,0 +1,37 @@
+.logout{
+    font-weight: 700;
+  
+  padding: 25px;
+      text-decoration: none;
+      color: rgb(0, 0, 0);
+      border: 2px solid rgb(255, 255, 255);
+      border-radius: 10px;
+      text-align: center;
+      position: relative;
+      transition: all .35s;
+    }
+    
+  .logout span{
+      position: relative;
+      z-index: 2;
+    }
+    
+  .logout:after{
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background: lightskyblue;
+      transition: all .35s;
+    }
+    
+   .logout:hover{
+      color: #fff;
+    }
+    
+  
+    .logout:hover:after{
+      width: 100%;
+    }

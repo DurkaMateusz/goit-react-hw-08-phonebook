@@ -1,0 +1,25 @@
+.navLink {
+  text-decoration: none;
+  font-size: 18px;
+  color: #000;
+  margin-right: 10px;
+  font-weight: 700;
+  padding: 25px;
+}
+
+.navLinkActive {
+  color: lightskyblue;
+  font-weight: bold;
+}
+.navContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: blue;
+  padding: 20px 0;
+}
+
+.themeToggle svg {
+  color: lightskyblue;
+}

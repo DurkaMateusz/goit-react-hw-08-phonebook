@@ -1,0 +1,32 @@
+/* UserMenu.css */
+.userMenuContainer {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    background-color: lightblue;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.userEmail {
+    padding: 20px;
+    font-size: 16px;
+    color: #000000;
+    font-weight: 700;
+    background-color: lightblue;
+    border-radius: 4px;
+    width: 100%;
+text-align: center;
+}
+
+.avatar{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
