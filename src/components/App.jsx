@@ -28,7 +28,7 @@ export const App = () => {
   return (
     <ChakraProvider>
       <div>
-        <BrowserRouter>
+        <BrowserRouter basename="/goit-react-hw-08-phonebook/">
           <Navigation />
           <Routes>
             <Route path="/" element={<Home />} />
